@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Lazy youtube player</title>
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'lazyyoutube/images/favicon-16x16.png' %}"/>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: "Roboto";
+            font-weight: 400;
+        }
+        input[type=text]   {
+            top: 10%;
+            width: 50%;
+            height: 20%;
+            box-sizing: border-box;
+            padding: 12px 20px;
+            font-size:24px;
+        }
+
+        input[type=submit]  {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 0.4s;
+        }
+
+        input[type=submit]:hover  {
+            background-color: #e7e7e7; color: black;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <img src="{% static 'lazyyoutube/images/przod_maly.png' %}" alt="">
+    <div style = "top : 50%">
+        <form action = "/player" method = "POST">
+            {% csrf_token %}
+            <label for="link">Wpisz adres do filmiku na youtube. <br> Wpisz 'stop', wyłączyć komputer <br><br><br></label>
+            <input id="link" type="text" name="link" maxlength="100" required><br>
+            <input type = "submit" value = "Wyślij">
+        </form>
+    </div>
+</center>
+</body>
+</body>
+</html>
